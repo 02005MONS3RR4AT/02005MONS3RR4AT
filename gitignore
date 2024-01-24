@@ -1,0 +1,51 @@
+function contarMayoresQueX(numeros, x) {
+    let contador = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] > x) {
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+// Ejemplo de uso:
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Ingresa cuántos números quieres leer: ', (n) => {
+    const cantidadNumeros = parseInt(n);
+    let listaNumeros = [];
+
+    (function leerNumeros(i) {
+        if (i < cantidadNumeros) {
+            rl.question('Ingresa el número: ', (numero) => {
+                listaNumeros.push(parseInt(numero));
+                leerNumeros(i + 1);
+            });
+        } else {
+            rl.question('Ingresa el valor con el que comparar: ', (valorX) => {
+                const x = parseInt(valorX);
+                const cantidadMayores = contarMayoresQueX(listaNumeros, x);
+                console.log(`De tu lista, ${cantidadMayores} valores son mayores a ${x}`);
+                rl.close();
+            });
+        }
+    })(0);
+});- 👋 Hi, I’m @02005MONS3RR4AT
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+
+<!---
+02005MONS3RR4AT/02005MONS3RR4AT is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
